@@ -1,0 +1,17 @@
+# Ignore Python cache and environment
+__pycache__/
+*.pyc
+.venv/
+
+# Ignore environment/config files
+.env
+api.txt
+
+# Ignore scrape results
+backend/scrape_results/
+
+# Ignore node modules (if frontend uses Node.js)
+node_modules/
+
+# Ignore OS files
+.DS_Store
