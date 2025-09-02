@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 def get_openrouter_suggestions(text, api_key, prompt_template=None, model="openai/gpt-3.5-turbo"):
     if prompt_template is None:
         prompt_template = (
-            "Analyze the following website content. Based on its main topics, generate 3–5 highly specific, practical, and creative suggestions for sustainable or climate-friendly actions, habits, places, or products that are directly relevant to the user’s interests. Avoid generic advice. For each suggestion, include a short explanation of why it fits the content. Format your answer as a numbered list."
+            "Analyze the following website content. Based on its main topics, generate 1-3 highly specific, practical, and creative suggestions for sustainable or climate-friendly actions, habits, places, or products that are directly relevant to the user’s interests. Avoid generic advice. For each suggestion, include a short explanation of why it fits the content. Format your answer as a numbered list."
         )
     prompt = prompt_template.format(content=text)
     url = "https://openrouter.ai/api/v1/chat/completions"

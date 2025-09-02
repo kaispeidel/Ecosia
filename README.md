@@ -1,33 +1,45 @@
-# Ecosia: Sustainable Browsing Proof of Concept
+# Ecosia: Sustainable Suggestions Platform
 
 ## Project Goal
-A tool that analyzes recently visited websites (provided by the user) and suggests sustainable or climate-friendly actions, habits, places, or products using a free LLM API (e.g., Ollama, DeepSeek).
+A tool that analyzes websites and suggests sustainable or climate-friendly actions, habits, places, or products using a free LLM API (e.g., Ollama, DeepSeek). The system then connects these suggestions to real-world places in Berlin.
 
 ## Structure
-- `frontend/`: Simple web UI for inputting URLs and displaying suggestions.
-- `backend/`: API to process URLs, interact with LLM, and return suggestions.
+- `frontend/`: Interactive web UI for displaying suggestions and their connected real-world places.
+- `backend/`: Processing system that connects AI-generated suggestions with physical locations.
 
-## Proof of Concept Flow
-1. User pastes a list of recently visited websites into the web UI.
-2. The backend summarizes the browsing topics and sends them to a free LLM API.
-3. The LLM returns actionable, sustainable suggestions.
-4. The frontend displays the results to the user.
+## Project Flow
+1. The backend extracts sustainable ideas from eco-friendly websites.
+2. An AI generates actionable sustainability suggestions.
+3. The system extracts keywords from these suggestions.
+4. The Google Places API finds relevant sustainable locations in Berlin.
+5. The frontend visualizes the connections between suggestions and places.
 
-## Next Steps
-- Set up the frontend with a text area and submit button.
-- Set up the backend with an endpoint to receive URLs and call the LLM API.
-- Connect frontend and backend.
+## Features
 
-This repository will be used to apply for Ecosia
+- **Web Content Analysis**: Extracts sustainable ideas from eco-friendly websites
+- **AI-Powered Suggestions**: Generates actionable sustainability suggestions
+- **Keyword Extraction**: Identifies relevant search terms for each suggestion
+- **Place Matching**: Connects suggestions to real-world locations in Berlin
+- **Interactive Visualization**: 
+  - Grid view for browsing all suggestions
+  - List view for detailed information
+  - Map view to see all locations geographically
+- **Filtering**: Filter suggestions by category and search by keyword
 
-Game Plan:
+## Getting Started
 
-1. Requirements & Research
-Define supported browsers (Chrome, Firefox, Safari, etc.).
-Research how to access/export browsing history for each browser.
-Explore free LLM APIs (Ollama, DeepSeek, etc.) and their integration methods.
-Identify sources for sustainable/climate-friendly suggestions (databases, APIs, or curated lists).
-2. Architecture Overview
+1. Open `frontend/index.html` in a web browser
+2. Browse the sustainable suggestions
+3. Use the filters to find specific types of suggestions
+4. Click on suggestions to see detailed information
+5. View locations on the map to find places near you
+
+## Technologies Used
+
+- **Backend**: Python with LLM API for keyword extraction and suggestions
+- **Frontend**: HTML, CSS, JavaScript
+- **Maps**: Leaflet.js for map visualization
+- **Data Source**: Google Places API
 Backend: Scrapes and processes browsing history, interacts with LLM API, generates suggestions.
 Frontend: User interface for uploading history, viewing analysis, and receiving suggestions.
 Optional: Local-first approach for privacy (process data on user’s machine).

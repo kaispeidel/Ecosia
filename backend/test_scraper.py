@@ -31,7 +31,8 @@ if __name__ == "__main__":
     urls = [
         "https://imagine5.com/interview/rob-hopkins-the-future-is-beautiful-but-to-get-there-we-have-to-believe-in-it/",
         "https://blog.ecosia.org/brazil/",
-        "https://www.404media.co/citizen-is-using-ai-to-generate-crime-alerts-with-no-human-review-its-making-a-lot-of-mistakes/"
+        "https://www.goodnewsnetwork.org/design-firm-blends-new-tourist-infrastructure-into-the-very-rock-of-this-famous-taiwan-geopark/"
+        
     ]
     results = scrape_urls(urls)
     api_key = get_api_key_from_env()
