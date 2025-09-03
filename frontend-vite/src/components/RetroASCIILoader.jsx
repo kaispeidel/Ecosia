@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const RetroASCIILoader = ({ onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -55,41 +56,68 @@ const RetroASCIILoader = ({ onComplete }) => {
     return '█'.repeat(filledBars) + '░'.repeat(emptyBars);
   };
 
-  return (
-    <div className="fixed inset-0 bg-white text-gray-800 font-mono flex items-center justify-center z-50">
-      <div className="text-center">
-        {/* Main Box */}
-        <div className="border-2 border-gray-800 p-8 bg-white shadow-lg">
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev || 'auto';
+    };
+  }, []);
+
+  const cream = '#f5f4f0';
+  const overlay = (
+    <div
+      role="dialog"
+      aria-modal="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, rgba(45,63,47,0.98), rgba(60,79,62,0.98))',
+        zIndex: 2147483647,
+        pointerEvents: 'auto',
+        backdropFilter: 'blur(3px)'
+      }}
+    >
+      <div style={{ textAlign: 'center', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace' }}>
+        {/* Main Box (border-only, square corners) */}
+        <div style={{ border: `2px solid ${cream}`, padding: '2rem', background: 'transparent', borderRadius: '0px', boxShadow: 'none', maxWidth: '520px', margin: '0 1rem' }}>
           <div className="mb-6">
-            <h2 className="text-xl font-bold tracking-wider mb-4">
+            <h2 className="text-xl font-bold tracking-wider mb-4" style={{ color: cream }}>
               {steps[currentStep].text}
             </h2>
-            
-            {/* Simple animated dots */}
-            <div className="text-2xl mb-6">
-              {currentStep === 0 && (
-                <span className="animate-pulse">● ○ ○ ○</span>
-              )}
-              {currentStep === 1 && (
-                <span className="animate-pulse">● ● ○ ○</span>
-              )}
-              {currentStep === 2 && (
-                <span className="animate-pulse">● ● ● ○</span>
-              )}
-              {currentStep === 3 && (
-                <span className="animate-pulse">● ● ● ●</span>
-              )}
-            </div>
-            
-            {/* Progress Bar */}
-            <div className="text-sm mb-2">
-              [{createProgressBar(progress)}] {Math.round(progress)}%
+
+            {/* Animated area on white background (only lines inside) */}
+            <div style={{ background: 'transparent', padding: '1rem', borderRadius: '0px', display: 'inline-block', minWidth: '320px',  }}>
+              <div className="text-2xl mb-4" style={{ lineHeight: 1.1 }}>
+                {currentStep === 0 && (
+                  <span className="animate-pulse" style={{ color: cream }}>● ○ ○ ○</span>
+                )}
+                {currentStep === 1 && (
+                  <span className="animate-pulse" style={{ color: cream }}>● ● ○ ○</span>
+                )}
+                {currentStep === 2 && (
+                  <span className="animate-pulse" style={{ color: cream }}>● ● ● ○</span>
+                )}
+                {currentStep === 3 && (
+                  <span className="animate-pulse" style={{ color: cream }}>● ● ● ●</span>
+                )}
+              </div>
+
+              {/* Progress Bar */}
+              <div className="text-sm" style={{ color: cream, fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace' }}>
+                [<span style={{ color: cream }}>{createProgressBar(progress)}</span>] <span style={{ marginLeft: 6 }}>{Math.round(progress)}%</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+
+  return createPortal(overlay, document.body);
 };
 
 export default RetroASCIILoader;

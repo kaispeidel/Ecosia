@@ -54,11 +54,30 @@ const SuggestionsText = ({ fileName }) => {
     );
   }
 
+  // Split into lines and find the first non-empty line to emphasize
+  const allLines = content.split(/\r?\n/);
+  let firstIndex = allLines.findIndex((l) => l.trim() !== '');
+  if (firstIndex === -1) firstIndex = 0;
+  const firstLine = allLines[firstIndex] || '';
+  const remaining = allLines.slice(firstIndex + 1).join('\n');
+
   return (
     <div className="bg-gray-50 border border-gray-200 p-6 rounded-none">
-      <pre className="whitespace-pre-wrap text-sm text-gray-800 font-mono leading-relaxed">
-        {content}
-      </pre>
+      {/* Emphasized first suggestion line */}
+      {firstLine.trim() && (
+        <div className="mb-4 p-3 border-l-4" style={{ borderColor: '#3c4f3e' }}>
+          <div className="text-sm font-semibold text-black">
+            {firstLine}
+          </div>
+        </div>
+      )}
+
+      {/* Remaining suggestions kept in monospace preformatted block */}
+      {remaining.trim() ? (
+        <pre className="whitespace-pre-wrap text-sm text-gray-800 font-mono leading-relaxed">
+          {remaining}
+        </pre>
+      ) : null}
     </div>
   );
 };

@@ -6,7 +6,7 @@ const W1Page = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Main Content */}
-      <main className="mx-auto px-6 py-8" style={{ maxWidth: '800px' }}>
+  <main className="mx-auto px-6 py-8 pb-20 animate-slide-up" style={{ maxWidth: '800px', transition: 'transform 320ms ease-out' }}>
         {/* Article Header */}
         <div className="border-2 border-gray-800 bg-white mb-8 shadow-lg overflow-hidden">
           {/* Title/Author Section */}
@@ -45,6 +45,11 @@ const W1Page = () => {
           <h2 className="text-lg font-semibold text-black mb-6">EXTRACTED PLACES</h2>
           <PlacesWithMap fileName="W1_places.txt" />
         </div>
+        <div>
+
+        </div>
+  {/* Spacer instead of footer */}
+  <div className="h-16" />
       </main>
     </div>
   );

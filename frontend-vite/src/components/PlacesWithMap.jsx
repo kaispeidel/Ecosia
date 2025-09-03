@@ -19,9 +19,8 @@ const PlacesWithMap = ({ fileName }) => {
         const text = await response.text();
         
         // Process the raw text to extract places and keywords
-        const processed = processPlacesText(text);
-        setProcessedData(processed);
-  console.info('Processed places for', fileName, processed);
+  const processed = processPlacesText(text);
+  setProcessedData(processed);
         setError(null);
       } catch (err) {
         console.error(`Error loading ${fileName}:`, err);
@@ -98,7 +97,10 @@ const PlacesWithMap = ({ fileName }) => {
 
           // This looks like a place entry
           const urlMatch = trimmedLine.match(/(https?:\/\/[^\s]+)/);
-          const placeName = trimmedLine.replace(/(https?:\/\/[^\s]+)/g, '').trim();
+          // Remove URL portion and clean surrounding separators like leading/trailing dashes
+          const rawPlaceName = trimmedLine.replace(/(https?:\/\/[^\s]+)/g, '').trim();
+          // Strip leading/trailing hyphens, en/em dashes and surrounding whitespace
+          const placeName = rawPlaceName.replace(/^[\s\-–—]+|[\s\-–—]+$/g, '').replace(/\s*-\s*$/,'').trim();
 
           // Extract place ID from the URL
           let placeId = null;

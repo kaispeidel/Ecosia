@@ -34,17 +34,18 @@ function App() {
     setIsLoading(true);
     setSelectedUrl(url);
     
-    // Prevent body scrolling during loading
-    document.body.style.overflow = 'hidden';
+  // Prevent body scrolling during loading
+  document.body.style.overflow = 'hidden';
   };
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    document.body.style.overflow = 'auto'; // Restore scrolling
+  document.body.style.overflow = 'auto'; // Restore scrolling
   };
 
   const handleBackToUrls = () => {
     setSelectedUrl(null);
+  document.body.style.overflow = 'auto';
   };
 
   const renderPageComponent = () => {
@@ -61,58 +62,44 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Loading Overlay */}
-      {isLoading && (
-        <div 
-          className="fixed inset-0 bg-white flex items-center justify-center"
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'white',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <RetroASCIILoader onComplete={handleLoadingComplete} />
-        </div>
-      )}
+    <div className="min-h-screen bg-white flex flex-col">
+  {/* Loading Overlay */}
+  {isLoading && <RetroASCIILoader onComplete={handleLoadingComplete} />}
 
-  {/* Header */}
-  <header className="bg-white py-4">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-black">
-                POST-DIGITAL PUBLISHING ARCHIVE
-              </h1>
-              <p className="text-sm text-gray-600 mt-1">
-                Experimental Publishing Informed By Digital Technology
-              </p>
-            </div>
-            <div className="flex items-center space-x-4">
-              {selectedUrl && (
-                <button 
-                  onClick={handleBackToUrls}
-                  className="text-sm text-gray-600 hover:text-black"
-                >
-                  ← Back
-                </button>
-              )}
-            </div>
-          </div>
+  <header className="bg-white py-4 px-6 sm:px-8 md:px-12 lg:px-16">
+  <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative">
+      <div className="flex items-start justify-between">
+        <div className="flex items-start">
+          {selectedUrl && (
+            <button
+              onClick={handleBackToUrls}
+              className="text-sm font-semibold rounded-none cursor-pointer"
+              style={{
+                border: '2px solid #f5f4f0',
+                color: '#f5f4f0',
+                padding: '0.4rem 0.75rem',
+                background: 'transparent'
+              }}
+            >
+              Back
+            </button>
+          )}
         </div>
-      </header>
 
-      {/* Main Content */}
-      <main className="mx-auto px-6 py-8" style={{ maxWidth: '800px' }}>
+        <div className="flex-1 text-center">
+          <h1 className="text-2xl font-bold text-black">
+            EXPERIMENTAL SUSTAINABLE SUGGESTIONS
+          </h1>
+          <p className="text-sm text-gray-600 mt-1"></p>
+        </div>
+
+        <div className="w-32" />
+      </div>
+    </div>
+  </header>
+
+  {/* Main Content */}
+  <main className="mx-auto px-6 py-8 pb-24 flex-1" style={{ maxWidth: '800px' }}>
         {!selectedUrl ? (
           <div>
             <h2 className="text-lg font-semibold text-black mb-6">BROWSING HISTORY</h2>
@@ -156,7 +143,10 @@ function App() {
         ) : (
           renderPageComponent()
         )}
-      </main>
+  </main>
+
+  {/* Bottom spacer to ensure blank space under the container */}
+  <div className="h-24" />
     </div>
   );
 }
