@@ -31,7 +31,8 @@ if __name__ == "__main__":
     urls = [
         "https://imagine5.com/interview/rob-hopkins-the-future-is-beautiful-but-to-get-there-we-have-to-believe-in-it/",
         "https://blog.ecosia.org/brazil/",
-        "https://www.goodnewsnetwork.org/design-firm-blends-new-tourist-infrastructure-into-the-very-rock-of-this-famous-taiwan-geopark/"
+        "https://www.goodnewsnetwork.org/design-firm-blends-new-tourist-infrastructure-into-the-very-rock-of-this-famous-taiwan-geopark/",
+        "https://adventure.com/all-electric-nsw-road-trip-jeep-reflections/"
         
     ]
     results = scrape_urls(urls)

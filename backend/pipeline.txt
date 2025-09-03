@@ -1,0 +1,1 @@
+scraper.py --> scrape results / ai_suggestions --> llm_place_connector.py --> keyword_extractor.py--> google API call --> llm_places connected
