@@ -216,7 +216,7 @@ const PlacesWithMap = ({ fileName }) => {
                   <li 
                     key={index} 
                     className={`text-sm text-gray-800 p-2 rounded cursor-pointer transition-colors duration-200 ${
-                      selectedPlace?.name === place.name ? 'bg-green-100 border-l-4 border-green-500' : 'hover:bg-gray-50'
+                      selectedPlace?.name === place.name ? 'bg-gray-50 border-l-4 border-gray-400' : 'hover:bg-gray-50'
                     }`}
                     onClick={() => setSelectedPlace(place)}
                   >
