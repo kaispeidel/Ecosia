@@ -11,7 +11,6 @@ Create a rainwater harvesting system in your garden: Collecting rainwater can he
 
 **Sustainable Places**:
 - Nirgendwo @ Helsingforser Str. 10, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJAW55iUROqEcReEvQHuLtFyc
-- H&M @ Neue Schönhauser Str. 13, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJMWueTs5RqEcRtlWXLxBZ3v4
 - Cityplot - Berlin @ Saarbrücker Str. 24, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJ88x2DEpPqEcRu5eGR4j4jRw
 - LOBE Block @ Böttgerstraße 16, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJL2bT8ylSqEcR872juk_XOx4
 - Park am Gleisdreieck @ Möckernstraße 26, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJe8FmEzBQqEcRth79TMVowwU
@@ -129,12 +128,6 @@ Opt for reusable and eco-friendly camping essentials such as biodegradable toile
 
 **Keywords**: camping gear shop, outdoor store
 
-**Sustainable Places**:
-- CAMP4 @ Karl-Marx-Allee 32, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJu2_r9xdOqEcRVZTgSR8Mbjg
-- 360° Outdoor @ Oranienstraße 164, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJD7x1azJOqEcRQaKjxEztuYE
-- Mont K @ Kastanienallee 83, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJX_bPoP5RqEcR4yr5iQbERyY
-- HiKERHAUS @ Bötzowstraße 35, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJ8XykAwVPqEcRcnk2oVaP2Lg
-- Der Aussteiger @ Danziger Str. 41, Berlin - https://www.google.com/maps/place/?q=place_id:ChIJH4pXaABOqEcRuw7JQZguV0Q
 
 --------------------------------------------------------------------------------
 
