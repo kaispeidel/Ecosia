@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 
 def geocode_location(location_name):
-    url = "https://maps.googleapis.com/maps/api/geocode/json"
+    url = get_geocode_url()
     params = {"address": location_name, "key": os.getenv("GOOGLE_MAPS_API_KEY")}
     resp = requests.get(url, params=params, timeout=15)
     resp.raise_for_status()
@@ -15,7 +15,7 @@ def geocode_location(location_name):
     return loc["lat"], loc["lng"]
 
 def search_places_google(query, lat, lng, radius=3000, max_results=5):
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    url = get_nearbysearch_url()
     params = {
         "key": os.getenv("GOOGLE_MAPS_API_KEY"),
         "location": f"{lat},{lng}",
@@ -34,6 +34,12 @@ def search_places_google(query, lat, lng, radius=3000, max_results=5):
             "maps_url": f"https://www.google.com/maps/place/?q=place_id:{place.get('place_id')}"
         })
     return results
+
+def get_geocode_url():
+    return os.getenv("GEOCODE_API_URL", "https://maps.googleapis.com/maps/api/geocode/json")
+
+def get_nearbysearch_url():
+    return os.getenv("NEARBYSEARCH_API_URL", "https://maps.googleapis.com/maps/api/place/nearbysearch/json")
 
 if __name__ == "__main__":
     load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
