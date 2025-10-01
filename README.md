@@ -13,4 +13,3 @@ key word extraction with regular expressions (re package)
 keyword search for places nearby with Google Maps API
 ↓
 → Ecosia job interview
-
