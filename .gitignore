@@ -15,3 +15,6 @@ node_modules/
 
 # Ignore OS files
 .DS_Store
+
+# Ignore this gitignore file itself
+.gitignore
